@@ -20,5 +20,5 @@ jobs:
         env:
           GITHUB_USERNAME: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./upload_clang.py ${{ github.event.inputs.version }}
+        run: ./upload_clang.py ${{ github.event.inputs.version }} --gh-org ${{ github.actor }}
 
