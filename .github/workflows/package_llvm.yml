@@ -15,7 +15,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        target: [ x86_64, arm, aarch64 ]
+          target: [ x86_64 ]
     steps:
       - uses: actions/checkout@v2
       - name: install requirements
@@ -26,5 +26,5 @@ jobs:
         env:
           GITHUB_USERNAME: ${{ github.actor }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./package_llvm.py --target-architecture ${{ matrix.target }} ${{ github.event.inputs.version }}
+        run: ./package_llvm.py --target-architecture ${{ matrix.target }} ${{ github.event.inputs.version }} --gh-org ${{ github.actor }}
 
