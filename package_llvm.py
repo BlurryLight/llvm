@@ -25,6 +25,7 @@ LLVM_PRERELEASE_URL = (
   'https://github.com/llvm/llvm-project/releases/'
   'download/llvmorg-{version}-rc{release_candidate}' )
 LLVM_SOURCE = 'llvm-project-{version}.src'
+LLVM_SOURCE_LEGACY = 'llvm-project-{version}'
 BUNDLE_NAME = 'clang+llvm-{version}-{target}'
 GITHUB_BASE_URL = 'https://api.github.com/'
 GITHUB_RELEASES_URL = (
@@ -416,7 +417,7 @@ def Main():
 
   llvm_url = GetLlvmBaseUrl( args )
   llvm_version = GetLlvmVersion( args )
-  llvm_source = LLVM_SOURCE.format( version = llvm_version )
+  llvm_source = LLVM_SOURCE_LEGACY.format( version = llvm_version )
   llvm_source_dir = os.path.join( base_dir, llvm_source )
 
   if not os.path.exists( llvm_source_dir ):
